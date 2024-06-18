@@ -1,0 +1,35 @@
+
+<mat-card class="mt-2" ngSkipHydration>
+  <mat-card-title>{{hero.superhero}}</mat-card-title>
+  <mat-card-subtitle>{{hero.alter_ego}}</mat-card-subtitle>
+  <!-- TODO: imagen -->
+  <img mat-card-image [src] = "hero | heroImage" [alt]= "hero.alter_ego"   />
+  <mat-card-content>
+    <h4>{{hero.publisher}}</h4>
+    <p>
+      <strong>Primera Aparición {{hero.first_appearance}}</strong>
+    <br>
+    <mat-chip-set  aria-label="Character">
+       @for(character of hero.characters.split(',')| slice:0:3; track $index ){
+        <!--  @for(character of hero.characters.split(','); track $index ){ -->
+        <mat-chip>{{character}}</mat-chip>
+      }
+      </mat-chip-set>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <button mat-button mat-raised color="primary"
+      [routerLink]="['/heroes/edit', hero.id]">
+        <mat-icon>edit</mat-icon>
+        Editar
+      </button>
+      <span class="spacer"></span>
+      <button mat-button mat-raised color="secondary"
+      [routerLink]="['/heroes', hero.id]">
+        <mat-icon>more_horiz</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
+<!-- <mat-divider></mat-divider> -->
+
+

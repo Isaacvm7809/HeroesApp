@@ -1,0 +1,15 @@
+<h1>Listado de Heróes</h1>
+<mat-divider></mat-divider>
+
+
+<div class="grid bm-8 pt-2">
+  @for(hero of this.heroes; track hero.id){
+    <div class="mt-2 col-12 sm-col-4 md:col-3 xl:col-2">
+      <heroes-hero-card [hero] = hero></heroes-hero-card>
+    </div>
+  }
+</div>
+
+<mat-divider></mat-divider>
+
+<!-- <pre>{{ heroes | json }}</pre> -->
